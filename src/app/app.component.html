@@ -1,0 +1,26 @@
+<nav class="flex justify-between p-4 bg-purple-900 text-white">
+    <div>
+       <a routerlink="">WeChat</a>
+    </div>
+
+
+<div>
+    <ng-container *ngIf="!isAuthenticated()">
+        <button class="mx-4" routerLink="/login">Login</button>
+        <button class="mx-4" routerLink="/register">Register</button>
+
+    </ng-container>
+
+    <ng-container *ngIf="isAuthenticated()">
+        <button (click)="logout()" class="mx-4">LogOut</button>
+        
+
+    </ng-container>
+</div>
+    
+</nav>
+
+<div class="p-4">
+    <router-outlet></router-outlet>
+</div>
+
