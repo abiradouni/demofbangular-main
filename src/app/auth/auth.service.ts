@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { LoginForm, RegisterForm } from '../shared/classes/auth';
-import { AngularFireDatabase} from '@angular/fire/compat/database';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +12,7 @@ export class AuthService {
   isAuthentificated: boolean = false;
 
 
-  constructor(private router :Router , private db: AngularFireDatabase) { }
+  constructor(private router :Router) { }
 
   login(form: LoginForm){
 
@@ -64,10 +61,6 @@ export class AuthService {
        const errorMessage = error.message;
        // ..
      }).finally(() =>this.isLoading = false)
-  }
-
-  createUser(){
-    
   }
 
   logOut(){
