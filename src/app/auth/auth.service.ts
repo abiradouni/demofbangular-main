@@ -30,7 +30,10 @@ export class AuthService {
 
    signInWithEmailAndPassword(auth, form.email, form.password).then((userCredential) => {
     let email = userCredential.user.email;
-    localStorage.setItem('email',email)
+    localStorage.setItem('email',email);
+    // let user :any;
+    // localStorage.setItem('user',JSON.stringify(user))
+    // JSON.parse(localStorage.getItem('user'));
      this.isAuthentificated = true;
      this.router.navigate(['home']);
 
