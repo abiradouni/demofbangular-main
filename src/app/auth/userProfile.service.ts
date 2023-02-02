@@ -22,6 +22,7 @@ export class userProfileService{
 
     }
 
+    
     deleteUser(user : User){
         return this.afs.doc('/Users' +user.id).delete();
     }  
