@@ -11,7 +11,7 @@ export class MessageService {
   constructor(private firestore:AngularFirestore) { }
   createMessage(message:any)
   {
-    return this.firestore.collection("Message").add(message);
+    return this.firestore.collection("messages").add(message);
   }
   /*
   updateMessage(message:any,id:string)

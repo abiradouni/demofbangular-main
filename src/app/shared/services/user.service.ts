@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { User } from '../classes/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  createUserProfile$: any;
 
   constructor(private firestore:AngularFirestore) { }
   createUser(user:any)
@@ -30,4 +32,5 @@ export class UserService {
       }).catch((err)=>{
         console.log(err);
       });  }
+      
 }

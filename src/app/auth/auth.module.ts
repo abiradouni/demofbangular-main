@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+
 import { ProfileComponent } from './profile/profile.component';
+import { MessageComponent } from './message/message.component';
+
+
+//import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -11,10 +16,15 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    MessageComponent,
   ],
   imports: [
     CommonModule,FormsModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+
+  constructor(){
+  }
+ }

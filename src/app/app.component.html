@@ -1,10 +1,8 @@
-<nav class="flex justify-between p-4 bg-purple-900 text-white">
+<nav class="flex justify-between p-2.5 bg-purple-900 text-white">
     <div>
        <a routerlink="">WeChat</a>
     </div>
-
-
-<div>
+ <div>
     <ng-container *ngIf="!isAuthenticated()">
         <button class="mx-4" routerLink="/login">Login</button>
         <button class="mx-4" routerLink="/register">Register</button>
@@ -16,11 +14,9 @@
         
 
     </ng-container>
-</div>
-    
+ </div>
 </nav>
-
-<div class="p-4">
+<div  class="p-2">
     <router-outlet></router-outlet>
 </div>
 

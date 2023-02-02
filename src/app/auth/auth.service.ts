@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { LoginForm, RegisterForm } from '../shared/classes/auth';
+import { createUserWithEmailAndPassword,
+   getAuth, signInWithEmailAndPassword,
+    signOut } from 'firebase/auth';
 
+import { LoginForm, RegisterForm } from '../shared/classes/auth';
+import { FirebaseTSFirestore } from "firebasets/firebasetsFirestore/firebaseTSFirestore";
+import { documentId } from 'firebase/firestore';
+import { userProfileService } from './userProfile.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  isLoading: boolean = false;
   isAuthentificated: boolean = false;
+  isLoading: boolean = false;
+
+  private firestore: FirebaseTSFirestore;
 
 
-  constructor(private router :Router) { }
+  constructor(private router :Router,private userpservice:userProfileService) {}
 
   login(form: LoginForm){
 
@@ -23,8 +29,10 @@ export class AuthService {
    const auth = getAuth();
 
    signInWithEmailAndPassword(auth, form.email, form.password).then((userCredential) => {
+    let email = userCredential.user.email;
+    localStorage.setItem('email',email)
      this.isAuthentificated = true;
-     this.router.navigate(['profile']);
+     this.router.navigate(['home']);
 
   })
   .catch((error) => {
@@ -35,13 +43,11 @@ export class AuthService {
   }).finally(() => (this.isLoading = false));
   }
 
-
-
   passwordMatched: boolean = true;
+
   register(form :RegisterForm){
 
     if(this.isLoading) return;
- 
     this.isLoading = true;
 
    if(form.password  !== form.confirm_password){
@@ -54,6 +60,10 @@ export class AuthService {
    createUserWithEmailAndPassword(auth,form.email, form.password)
      .then((userCredential) => {
        this.isAuthentificated= true;
+       this.userpservice.createUser(form);
+
+       this.router.navigate(['login']);
+
      })
      .catch((error) => {
       this.isAuthentificated = false;
