@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit{
     fullName:'',
     age: null,
     phone :'',
+    position :'',
     email:'',
     password:'',
     confirm_password:'',
@@ -48,8 +49,7 @@ export class RegisterComponent implements OnInit{
      
    }
    submit(){
-   this.authService.register(this.form);
-      
+   this.authService.register(this.form);   
   }
 
   isLoading(){

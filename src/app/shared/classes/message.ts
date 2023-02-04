@@ -6,5 +6,5 @@ export class Message {
     // file?:string;
     sender?:User;
     receiver?:User;
-    dateEnv?:Date;
+    dateEnv?:string;
 }

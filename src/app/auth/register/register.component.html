@@ -36,6 +36,17 @@
         Phone field must be valid
     </div>
 
+    <div class="my-5 w-full">
+        <input type="text" id="position"
+        class="p-2 rounded w-full border text-sm"
+        placeholder="Position" [(ngModel)]="form.position" 
+        name="position" #position="ngModel" required="">
+    </div>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class ="p-2 bg-red-300 text-red-800 rounded">
+        Position field must be valid
+    </div>
+
 
     <div class="my-5 w-full">
         <input type="email" id="email"

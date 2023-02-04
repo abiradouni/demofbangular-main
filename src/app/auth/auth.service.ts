@@ -35,9 +35,9 @@ export class AuthService {
     // localStorage.setItem('user',JSON.stringify(user))
     // JSON.parse(localStorage.getItem('user'));
      this.isAuthentificated = true;
-     this.router.navigate(['home']);
-
+     this.router.navigate(['message']);
   })
+  
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;

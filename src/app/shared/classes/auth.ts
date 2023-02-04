@@ -6,6 +6,7 @@ export interface RegisterForm{
     fullName: string;
     age: number | null;
     phone?: string;
+    position: string;
     email: string,
     password: string;
     confirm_password: string;

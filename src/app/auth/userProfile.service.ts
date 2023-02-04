@@ -22,6 +22,10 @@ export class userProfileService{
 
     }
 
+    readUser()
+    {
+        return this.afs.collection('email').snapshotChanges();
+    }
     
     deleteUser(user : User){
         return this.afs.doc('/Users' +user.id).delete();

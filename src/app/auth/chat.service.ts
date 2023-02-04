@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import { from, Observable } from 'rxjs';
-import { message } from "../shared/classes/message";
+import { Message } from "../shared/classes/message";
 
 
 @Injectable({
@@ -11,11 +11,21 @@ import { message } from "../shared/classes/message";
 export class ChatService {
 
   constructor(private afs:AngularFirestore,private message : ChatService) { }
-  createMessage(message: message)
+  createMessage(message: Message)
   {
     message.id = this.afs.createId();
     return this.afs.collection("Message").add(message);
+
+    //let mail :string;
+     //localStorage.setItem('user',JSON.stringify(User.email))
+    // JSON.parse(localStorage.getItem('user'));
   }
+
+  selectReceiver() {
+
+    return this.afs.collection("email").snapshotChanges(); 
+    }
+
   
   /*
   updateMessage(message:any,id:string)
