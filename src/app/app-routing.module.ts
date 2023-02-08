@@ -5,7 +5,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 import { ProfileComponent } from './auth/profile/profile.component';
-import { MessageComponent } from './auth/message/message.component';
+import { ChatComponent } from './auth/chat/chat.component';
+
 
 
 const routes: Routes = [
@@ -14,7 +15,12 @@ const routes: Routes = [
   {path:'login',component: LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'profile',component: ProfileComponent},
-  {path:'message',component: MessageComponent},
+ 
+  {path:'chat',component: ChatComponent},
+
+
+
+ 
 
 
 

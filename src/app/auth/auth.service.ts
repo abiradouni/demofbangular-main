@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword,
 
 import { LoginForm, RegisterForm } from '../shared/classes/auth';
 import { FirebaseTSFirestore } from "firebasets/firebasetsFirestore/firebaseTSFirestore";
-import { documentId } from 'firebase/firestore';
+
 import { userProfileService } from './userProfile.service';
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,7 @@ export class AuthService {
      this.isAuthentificated = true;
      this.router.navigate(['message']);
   })
-  
+   
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;

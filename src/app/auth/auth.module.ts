@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ProfileComponent } from './profile/profile.component';
 import { MessageComponent } from './message/message.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 //import { MessagesComponent } from './messages/messages.component';
@@ -18,6 +19,7 @@ import { MessageComponent } from './message/message.component';
     RegisterComponent,
     ProfileComponent,
     MessageComponent,
+    ChatComponent,
   ],
   imports: [
     CommonModule,FormsModule

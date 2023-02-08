@@ -18,10 +18,11 @@ import { AuthModule } from './auth/auth.module';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    ManageComponent
+    ManageComponent,
   ],
   imports: [
     BrowserModule,
