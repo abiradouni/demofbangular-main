@@ -25,6 +25,7 @@ export class ChatService {
 
     return this.afs.collection("email").snapshotChanges(); 
     }
+    
 
   
   /*
@@ -36,5 +37,6 @@ export class ChatService {
   ReadMessage(): Observable<any> {
     return this.afs.collection("Message").snapshotChanges();  }
 }
+
 
 

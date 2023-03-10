@@ -3,8 +3,13 @@ export class User {
     fullName?:string;
     age?:number;
     position?:string;
+    role?: string;
     email?:string;
     password?:string;
     adress?:string;
     phone?:string;
+    imgUrl?:any;
 }
+
+
+  

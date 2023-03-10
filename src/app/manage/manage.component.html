@@ -1,53 +1,44 @@
-<!--div class="container text-center">
-  <div class="row">
-    <div class="col">
 
-    </div>
-    <div class="col">
-      <form (submit)="add()">
-        <div class="mb-3">
-          <label  class="form-label">Nom</label>
-          <input name="nom" type="text" [(ngModel)]="user.firstName" class="form-control">
-        </div>
-        <div class="mb-3">
-          <label  class="form-label">Prenom</label>
-          <input name="prenom" type="text" [(ngModel)]="user.lastName" class="form-control">
-        </div>
-        <div class="mb-3">
-          <label  class="form-label">age</label>
-          <input name="age" type="number" [(ngModel)]="user.age" class="form-control">
-        </div>
-        <div class="mb-3">
-          <label  class="form-label">Email </label>
-          <input name="mail" type="email" [(ngModel)]="user.email" class="form-control">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Password</label>
-          <input name="pass" type="password" [(ngModel)]="user.password" class="form-control" >
-        </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <main>
+      <h2 class="p-2">Welcome, Admin</h2>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-    <div class="col">
+      <div class="cards">
+        <div class="card">
+          <h3>Total Users</h3>
+          <p>{{totalUsers}}</p>
+        </div>
+      </div>
 
-    </div>
-  </div>
+      <div class="p-10">
   <table class="table">
-<tr>
-  <th>Nom</th>
-  <th>Prénom</th>
-  <th>age</th>
-  <th>email</th>
-  <th>action</th>
-</tr>
-<tr *ngFor="let us of users">
-  <td>{{us.nom}}</td>
-  <td>{{us.prenom}}</td>
-  <td>{{us.age}}</td>
-  <td>{{us.email}}</td>
-  <td><button (click)="deleteUser(us.id)" class="btn btn-danger">Supprimer</button></td>
-</tr>
+  <tr>
+    <th>Full Name</th>
+    <th>Position</th>
+    <th>Mail</th>
+    <th class="m-50">action</th>
+  </tr>
+  <tr *ngFor="let us of users">
+    <td>{{us.fullName}}</td>
+    <td>{{us.position}}</td>
+    <td>{{us.email}}</td>
+    <td>
+      <button type="button" class="delete" (click)="deleteUser(user.id)">Delete</button>
+      <button type="button" class="add">Add </button>
+    </td>
+  </tr>
   </table>
-</!--div--->
+ </div>
+      
+    </main>
+  </body>
+</html>
 

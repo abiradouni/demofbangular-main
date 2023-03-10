@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
     
   }
+  
   submit(){
-
  this.authService.login(this.form);
   }
 

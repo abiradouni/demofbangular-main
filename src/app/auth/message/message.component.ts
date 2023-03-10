@@ -25,14 +25,13 @@ export class MessageComponent implements OnInit{
   content:string;
   msg : any={};
   sender:any={
-    nom:"aa",
-    prenom:"bb",
-    mail:"aa@gmail.com"
+    mail:"jaoudiabdelhak14@gmail.com"
+    
   };
   receiver:any={
-    nom:"aa",
-    prenom:"bb",
-    mail:"aa@gmail.com"
+    fullName:"Abir Adouni",
+    mail:"abiradouni@gmail.com"
+    
   };
   
   

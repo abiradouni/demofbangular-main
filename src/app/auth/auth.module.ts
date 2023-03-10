@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 
-import { ProfileComponent } from './profile/profile.component';
+
 import { MessageComponent } from './message/message.component';
 import { ChatComponent } from './chat/chat.component';
 
@@ -17,7 +17,6 @@ import { ChatComponent } from './chat/chat.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
     MessageComponent,
     ChatComponent,
   ],

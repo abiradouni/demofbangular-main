@@ -6,7 +6,6 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
 
 
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,6 +18,7 @@ export class RegisterComponent implements OnInit{
     age: null,
     phone :'',
     position :'',
+    role :'',
     email:'',
     password:'',
     confirm_password:'',

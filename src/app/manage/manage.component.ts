@@ -11,15 +11,18 @@ import { map } from 'rxjs';
 export class ManageComponent implements OnInit {
 user=new User();
 users:any;
-  constructor(private userapi:UserService)
-{}
+totalUsers: number = 0;
+  constructor(private userapi:UserService){}
   ngOnInit(): void {
     this.readUsers();
-
   }
+
   readUsers()
   {
-    this.userapi.ReadUsers().pipe( map(changes =>
+    this.userapi
+    .ReadUsers()
+    .pipe
+    ( map(changes =>
       changes.map((c: { payload: { doc: { id: any; data: () => {}; }; }; }) =>
         ({ id: c.payload.doc.id,
           ...c.payload.doc.data() as {} })
@@ -28,21 +31,51 @@ users:any;
   ).subscribe(data => {
     this.users = data;
     console.log("liste des users",this.users);
+    this.totalUsers = this.users.length;
 
 
   }
   );
 }
 
-add()
+addUser()
 {
-let us=Object.assign({},this.user)
+let us = Object.assign({},this.user)
   // convertir une  instance en objet
   this.userapi.createUser(us);
 }
-deleteUser(id:any)
+
+/*deleteUser(id:any)
 {
-  if(confirm("êtes vous sûre de vouloir supprimer?"))
+  if(confirm(" Are you sure you want to delete this User ?"))
   this.userapi.deleteUser(id);
+}*/
+
+/*deleteUser(id:String) {
+  if (confirm("Are you sure you want to delete this User?")) {
+    this.userapi.deleteUser(id).then(() => {
+      console.log("User Deleted");
+      // remove the deleted user from the users array
+      this.users = this.users.filter((us: any) => us.id !== id);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  this.users = this.users.filter((us: any) => us.id !== id);
+}*/
+
+deleteUser(id:String) {
+  if (confirm("Are you sure you want to delete this User?")) {
+    this.userapi.deleteUser(id).then(() => {
+      console.log("User Deleted");
+      // remove the deleted user from the users array
+      this.users = this.users.filter((us: any) => us.id !== id);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 }
+
+
+
 }

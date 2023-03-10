@@ -7,10 +7,12 @@ import { User } from "../shared/classes/user";
     providedIn :'root'
 })
 export class userProfileService{
+    user: any;
+    email:string;
     constructor(private afs : AngularFirestore){
     }
 
-    // create user/profile
+    // create user profile
       
     createUser(user : any){
         user.id = this.afs.createId();
@@ -18,18 +20,31 @@ export class userProfileService{
     }
 
     readAllUsers(){
-      return this.afs.collection('Users').snapshotChanges();
-
+      //return this.afs.collection('Users').snapshotChanges();
+      return this.afs.collection('Users').valueChanges();
     }
 
-    readUser()
+    getUserID()
     {
-        return this.afs.collection('email').snapshotChanges();
+        return this.afs.collection('id').snapshotChanges();
     }
+
     
     deleteUser(user : User){
         return this.afs.doc('/Users' +user.id).delete();
     }  
+
+    updateUserProfilePicture(url: string) {
+        if (this.user) {
+          this.user.updateProfile({
+            photoURL: url
+          }).then(() => {
+            console.log('Profile picture updated successfully');
+          }).catch((error: any) => {
+            console.log('Error updating profile picture:', error);
+          });
+        }
+      }
 
 
     

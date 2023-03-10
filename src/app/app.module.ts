@@ -14,7 +14,6 @@ import { ManageComponent } from './manage/manage.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environements/environements';
 import { AuthModule } from './auth/auth.module';
-
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 
 
@@ -29,11 +28,15 @@ import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-   
+   ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,AuthModule,
+    AngularFireModule,
+    
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

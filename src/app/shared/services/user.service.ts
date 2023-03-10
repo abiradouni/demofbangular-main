@@ -26,11 +26,14 @@ export class UserService {
       return this.firestore.collection("Users",(ref)=> ref.where("email","==",email)).snapshotChanges();}
 
 
-    deleteUser(id:any) {
+      deleteUser(id:any) {
       return this.firestore.doc('Users/'+id).delete().then(()=>{
         console.log('User Deleted');
       }).catch((err)=>{
         console.log(err);
       });  }
+      
+      
+      
       
 }
